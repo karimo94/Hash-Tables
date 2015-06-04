@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace hash_tables
 {
@@ -11,16 +6,7 @@ namespace hash_tables
     {
         static void Main(string[] args)
         {
-            Hashtable ht = new Hashtable(10);
             hashtable_custom htc = new hashtable_custom();
-            ht.Add(7777, "kharray");
-            ht.Add(3433, "hichem smati");
-            ht.Add(9999, "ey ey");
-            ht.Add(6674, "way way way");
-            ht.Add(3461, "stik tik tik");
-            ht.Add(1212, "boldog");
-            ht.Add(8888, "del piero");
-            Console.WriteLine(ht[9999]);
 
             htc.insert(5, "zidane");
             htc.insert(3, "maldini");
@@ -32,7 +18,7 @@ namespace hash_tables
             htc.insert(1, "buffon");
             htc.insert(8, "scholes");
             htc.insert(9, "henry");
-            htc.insert(11, "drogba el kharray");
+            htc.insert(11, "drogba");
             Console.WriteLine(htc.retrieve(10));
         }
     }
@@ -75,7 +61,7 @@ namespace hash_tables
             }
             if (table[hash] == null)
             {
-                return "";
+                return "nothing found!";
             }
             else
             {
@@ -96,7 +82,7 @@ namespace hash_tables
             }
             table[hash] = new hashentry(key, data);
         }
-        private bool checkOpenSpace()
+        private bool checkOpenSpace() //checks whether the table has been filled up or not
         {
             bool isOpen = false;
             for (int i = 0; i < maxSize; i++)
